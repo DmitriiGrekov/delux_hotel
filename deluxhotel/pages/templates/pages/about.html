@@ -1,0 +1,118 @@
+{% extends 'layout/basic.html'  %}
+{% load static %}
+
+{% block title%} About Us {% endblock %}
+
+
+{% block content%} 
+<section class="breadcrumbs" style="background-image: url({% static 'assets/images/breadcrumbs/about.jpg' %})">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="h1">About Us</h1>
+          </div>
+          <div class="col-md-6">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a><i class="fa fa-angle-right"></i></li>
+              <li class="active">About Us</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /breadcrumbs -->
+    <!-- about -->
+    <section class="about">
+      <div class="container">
+        <h2 class="h2">About Our DeluxHotel</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="about_img"><img class="img-responsive" src="{% static 'assets/images/about/1.jpg' %}" alt=""/></div>
+          </div>
+          <div class="col-md-6">
+            <div class="about_info">
+              <div class="about_t">From 1990 to now...</div>
+              <p>May musical arrival beloved luckily adapted him. Shyness mention married son she his started now. Rose if as past near were. To graceful he elegance oh moderate attended entrance pleasure. Vulgar saw fat sudden edward way played either. Thoughts smallest at or peculiar relation breeding produced an. <br><br>At depart spirit on stairs. She the either are wisdom praise things she before. Be mother itself vanity favour do me of. Begin was power joy after had walls miles. Wise busy past both park when an ye no. Nay likely her length sooner thrown lively income.</p>
+              <a class="btn btn-default" href="{% url 'pages:contact' %}">Contact us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /about -->
+    <!-- Our mission -->
+    <section class="mission">
+      <div class="container">
+        <h2 class="h2">Our Mission</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="mission_ul">
+              <li>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus </li>
+              <li>If you have any questiong about our products or something else</li>
+              <li>iStock customers get 15% off 6 or more credits, use the code</li>
+              <li>Cras mattis consectetur purus sit amet fermentum. Etiam porta sem</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="mission_ul">
+              <li>You can c reate various skin to use on color/parallax section easily.</li>
+              <li>This will help you to be able to create various color tone within your site.</li>
+              <li>Nullam id dolor id nibh ultricies vehicula ut id elit.</li>
+              <li>ivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Our mission -->
+    <!-- lux banner parallax -->
+      <section class="banner bg-parallax2">
+        <div class="overlay"></div>
+      <div class="banner-parallax">
+        <div class="container">
+          <div class="text-center">
+            <div class="banner-parallax_raiting">
+              <a href="#"><span class="star __selected"></span></a>
+              <a href="#"><span class="star __selected"></span></a>
+              <a href="#"><span class="star __selected"></span></a>
+              <a href="#"><span class="star"></span></a>
+              <a href="#"><span class="star"></span></a>
+            </div>
+            <h2 class="banner-parallax_t">Double Luxury Room</h2>
+            <div class="banner-parallax_price"><span>$560</span> / Night (Only This Week)</div>
+            <a href="#" class="btn btn-default">Book this room</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /lux banner parallax -->
+    <!-- testiomonials -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="title-main"><h2 class="h2">Some Testimonails<span class="title-secondary">People Says About Us</span></h2></div>
+        <div class="owl-carousel">
+          <div class="item">
+            <div class="testimonials-block_i">
+              <div class="testimonials-block_t">Great <span>Service</span></div>
+              <p>Old unsatiable our now but considered travelling impression. In excuse hardly summer in basket misery. By rent an part need. At wrong of of water those linen. Needed oppose seemed how all</p>
+            </div>
+            <div class="testimonials-block_user">
+                <div class="user_img"><img src="{% static 'assets/images/testimonials/mike.jpg' %}" alt=""/></div>
+                <div class="user_n">Garry Carlson</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonials-block_i">
+              <div class="testimonials-block_t">Thank You Very Much <span>I Am Happy!</span></div>
+              <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him. Interested the unaffected mrs law friendship add principles.</p>
+            </div>
+            <div class="testimonials-block_user">
+                <div class="user_img"><img src="{% static 'assets/images/testimonials/mila.png' %}" alt=""/></div>
+                <div class="user_n">Mila Markovna</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

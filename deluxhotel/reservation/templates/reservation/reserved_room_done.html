@@ -1,0 +1,24 @@
+{% extends 'layout/basic.html'  %}
+
+{% block title%} Комната успешно зарезервирована {% endblock %}
+
+
+{% block content%} 
+
+<div class="wizzard">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="wizzard-success">
+              <div class="wizzard-success_t">Your reservation was successfully submitted!</div>
+              <p>Your reservation details have just been sent to your email. If you have any questions, please don`t hesitate to contact us. Thank you!</p>
+              <div class="wizzard-phone"><i class="fa fa-phone"></i> Free Line Phone <span>{{ contact_info.phone }}</span></div>
+              <div class="wizzard-email"><i class="fa fa-paper-plane"></i> E-mail: <span><a href="mailto:support@email.com">{{ contact_info.email }}</a></span></div>
+              <a href="{% url 'main:index' %}" class="btn btn-default">Back to home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

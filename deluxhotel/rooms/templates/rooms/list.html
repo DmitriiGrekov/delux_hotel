@@ -1,0 +1,89 @@
+{% extends 'layout/basic.html'  %}
+{% load static %}
+
+{% block title%} Все комнаты {% endblock %}
+
+{% block content %} 
+<section class="breadcrumbs" style="background-image: url({% static 'assets/images/breadcrumbs/best-room.jpg' %})">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="h1">Select Room</h1>
+          </div>
+          <div class="col-md-6">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a><i class="fa fa-angle-right"></i></li>
+              <li class="active">Rooms</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /breadcrumbs -->
+    <!-- chose best rooms -->
+    <section class="gallery best-room">
+      <div class="container">
+        <h2 class="h2">Best Rooms For Your Comfort</h2>
+            <ul class="portfolio-sorting">
+              <li><a href="#" data-group="all" class="active">All</a></li>
+              <li><a href="#" data-group="double">Double</a></li>
+              <li><a href="#" data-group="lux">Luxury</a></li>
+              <li><a href="#" data-group="standard">Standard</a></li>
+              <li><a href="#" data-group="economic">Economic</a></li>
+            </ul>
+      <div class="container best-room-carousel">
+        <div id="grid" class="row best-room_ul best-rooms-isotope-page">
+          {% if rooms %}
+         {% for room in rooms %} 
+          <div data-groups="[&quot;economic&quot;, &quot;standard&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 best-room_li">
+              <div class="best-room_img">
+                <a href="#"><img src="{{ room.image.url }}" alt=""/></a>
+                <div class="best-room_overlay">
+                  <div class="overlay_icn"><a href="{% url 'reservation:detail' room.pk %}"></a></div>
+                </div>
+              </div>
+              <div class="best-room-info">
+                <div class="best-room_t"><a href="{% url 'reservation:detail' room.pk %}">{{ room.name }}</a></div>
+                <div class="best-room_desc">{{ room.description }}</div>
+                <div class="best-room_price">
+                  <span>${{ room.price }}</span> / night
+                </div>
+                <div class="best-room_footer">
+                  <div class="footer_el __bed"><i class="fa fa-bed"></i> {{ room.bed }}</div>
+                  <div class="footer_el __ppl"><i class="fa fa-user"></i> {{ room.max_people }}</div>
+                        {% if room.wifi == 'a' %}
+                      <div class="footer_el __wifi">Free WiFi</div>
+                      {% endif %}
+                  <div class="footer_el __area">{{ room.room_size }} sqm</div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+          </div>
+         {% endfor %} 
+
+          </ul>
+
+        </div>
+        <nav class="text-center">
+                <ul class="pagination">
+                  {% for n in page_obj.paginator.page_range %} 
+                  {% if n == page_obj.number %}
+                     
+                  <li><a href="?page={{ n }}" class='active'>{{ n }}</a></li>
+
+                  {% else %}
+                  <li><a href="?page={{ n }}">{{ n }}</a></li>
+                  {% endif %}
+                  {% endfor %}
+                  <li> <a href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a></li>
+                </ul>
+              </nav>
+            
+            {% else %}
+
+
+            {% endif %}
+      </div>
+    </section>
+
+{% endblock %}

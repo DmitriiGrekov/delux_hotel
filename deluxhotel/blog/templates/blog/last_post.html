@@ -1,0 +1,15 @@
+<ul class="sidebar-lpost_ul">
+    {% for post in last_post %} 
+     <li class="sidebar-lpost_li">
+                    <div class="lpost_img">
+                      <a href="#"><img src="{{ post.image.url }}" alt=""/></a>
+                    </div>
+                    <div class="lpost_info">
+                      <div class="lpost_t"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></div>
+                      <div class="lpost_desc">{{ post.text|truncatechars:50}}</div>
+                    </div>
+                  </li>
+    {% endfor %}
+                  
+                  
+                </ul>

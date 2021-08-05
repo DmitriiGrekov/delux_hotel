@@ -1,0 +1,6 @@
+<ul class="sidebar-tags_ul">
+  {% for tag in popular_tags %} 
+                  <li class="sidebar-tags_li"><a href="{% url 'blog:tags_view' tag.pk %}">{{ tag.name }}</a></li>
+  {% endfor %}
+
+</ul>

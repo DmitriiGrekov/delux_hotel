@@ -1,0 +1,89 @@
+{% extends 'layout/basic.html'  %}
+
+{% block title%} 
+    Reserver Room
+{% endblock %}
+
+
+{% block content%} 
+<section class="breadcrumbs" style="background-image: url(assets/images/breadcrumbs/reservation.jpg)">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="h1">Reservation</h1>
+          </div>
+          <div class="col-md-6">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a><i class="fa fa-angle-right"></i></li>
+              <li class="active">Reservation Step 2</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /breadcrumbs -->
+    <!-- reservation wizzard steps-->
+    <div class="wizzard">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <form method='POST' class="form-wizzard form-horizontal">
+                {% csrf_token %}
+              <h3 class="h3">Personal information</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>First name</label>
+                    {{ form.first_name }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Last name</label>
+                    {{ form.last_name }}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Email</label>
+                    {{ form.email }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Phone number</label>
+                    {{ form.phone_number }}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Additional note</label>
+                    {{ form.additional_node }}
+                  </div>
+                </div>
+              </div>
+              <h3 class="h3">Payment information</h3>
+              <div class="wizzard-payment">
+                <div class="visa"></div>
+                <div class="paypal"></div>
+                <div class="mc"></div>
+                <div class="discover"></div>
+                <div class="stripe"></div>
+                <div class="ae"></div>
+              </div>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+                et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia </p>
+              <div class="wizzard-confirm">
+                  <input type="submit" class='btn btn-default' value='Checkout'>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

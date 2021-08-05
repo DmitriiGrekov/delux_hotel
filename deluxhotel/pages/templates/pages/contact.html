@@ -1,0 +1,100 @@
+{% extends 'layout/basic.html'  %}
+{% load static %}
+
+{% block title%} Contact {% endblock %}
+
+{% block content%} 
+<section class="breadcrumbs" style="background-image: url({% static 'assets/images/breadcrumbs/reservation.jpg' %})">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="h1">Contacts</h1>
+          </div>
+          <div class="col-md-6">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a><i class="fa fa-angle-right"></i></li>
+              <li class="active">Contacts</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /breadcrumbs -->
+    <section class="contact-block">
+      <div class="container">
+        <div class="contact-block_form">
+          <div class="row">
+              <div class="contact-block_info">
+                <div class="col-md-4">
+                  <div class="contact-block_i">
+                    <div class="info_icon">
+                      <i class="fa fa-home"></i>
+                    </div>
+                    <div class="info_txt"><span>{{ contact_info.adress }}</span></div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="contact-block_i">
+                    <div class="info_icon">
+                      <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="info_txt"><span>{{ contact_info.email }}</span></div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="contact-block_i">
+                    <div class="info_icon">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                    <div class="info_txt"><span>{{ contact_info.phone }}</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="row marg50">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h2 class="h2">Drop Us Some Lines...</h2></div> 
+                <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+                <div class="col-lg-8 col-md-8 col-sm-11 col-xs-11">
+                  {% if messages %}
+                  {% for message in messages %} 
+                  <div class="alert alert-success" role="alert">
+                    {{ message }}
+                  </div>
+                   
+                  {% endfor %}
+                     
+                  {% endif %}
+                  <form  method="POST" class="form-horizontal form-wizzard">
+                      {% csrf_token %}
+                    <div class="row">
+                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div id="name-group" class="form-group">
+                            {{ form.name }}
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div id="surname-group" class="form-group">
+                            {{ form.surname }}
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div id="phone-group" class="form-group">
+                            {{ form.phone }}
+                        </div>
+                      </div>
+                    </div>
+                    <div id="comment-group" class="form-group">
+                        {{ form.note }}
+                    </div>
+                    <div class="form-group text-center">
+                      <input type="submit" value="Send message" class="btn btn-default"/>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+{% endblock %}
